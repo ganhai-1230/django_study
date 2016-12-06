@@ -7,9 +7,13 @@ def hello(request):
     return HttpResponse("Hello world")
 
 
+def homepage(request):
+    return render(request, 'mypage.html', {'current_section': 'includes/nav', 'title': 'Home Page'})
+
+
 def current_datetime(request):
     now = datetime.datetime.now()
-    return render(request, 'current_time.html', {'current_date':now})
+    return render(request, 'current_time.html', {'current_date': now})
 
 
 def hours_ahead(request, offset):
@@ -18,5 +22,4 @@ def hours_ahead(request, offset):
     except ValueError:
         raise Http404()
     dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
-    html = "In {} hours(s), it will be {}".format(offset, dt)
-    return HttpResponse(html)
+    return render(request, 'hours_ahead.html', {'hour_offset':offset, 'next_time':dt})

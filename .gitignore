@@ -1,6 +1,9 @@
 # ignore Pycharm prject files
 .idea
 
+# ignore python pyc
+*.pyc
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
