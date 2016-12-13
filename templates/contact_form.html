@@ -22,10 +22,12 @@
     <div class="field">
         {{ form.email.errors }}
         <label for="id_email">Your e-mail address:</label>
+        {{ form.email }}
     </div>
     <div class="field">
         {{ form.message.errors }}
         <label for="id_message">Message:</label>
+        {{ form.message }}
     </div>
     {% csrf_token %}
     <input type="submit" value="Submit">
